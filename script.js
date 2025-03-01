@@ -1,4 +1,5 @@
 const timings = [
+    { date: "1 March", sehri: "05:05 AM", iftar: "06:01 PM" },
     { date: "2 March", sehri: "05:04 AM", iftar: "06:02 PM" },
     { date: "3 March", sehri: "05:03 AM", iftar: "06:03 PM" },
     { date: "4 March", sehri: "05:02 AM", iftar: "06:03 PM" },
