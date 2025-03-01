@@ -1,59 +1,33 @@
 # Code Citations
 
 ## License: unknown
-https://github.com/devternity/devternity.com.src/tree/13bd67c42876db344fc37c673bb872e8c20bce73/src/countdown.mjs
+https://github.com/SergioBateau/Bandaumnikov/tree/5a44030d1d1a2d89c8c8d91809f9e9aa70e0dae5/src/scripts/timer.js
 
 ```
-(1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-```
-
-
-## License: unknown
-https://github.com/mrocha51248/cp4/tree/15751849af037fb56569e5cb95880261739eb38d/assets/race_timer.js
-
-```
-.floor(diff / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)
+;
+            let hours = Math.floor(diff / (1000 * 60 * 60));
+            let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((diff %
 ```
 
 
 ## License: unknown
-https://github.com/juan-uribe-p/evoltfit-web/tree/f129d2e3cb469c9e66b71faf638fbdb13d31c587/pages/visualizadorCalorias.js
+https://github.com/keremduran/hydrogen-clothing/tree/ce4c964d8872313452c8f5003bf7882fb70b1f69/src/components/Discount.client.jsx
 
 ```
-now;
-            const hours = Math.floor(diff / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff
-```
-
-
-## License: unknown
-https://github.com/rifatptk/consulterdoor/tree/641a9b6992c0e50dcc975eb70248fe5e6dcce954/src/shared/utils.ts
-
-```
-] = timeString.split(' ');
-    let [hours, minutes] = time.split(':');
-    if (hours === '12') {
-        hours = '00';
-    }
-    if (modifier === 'PM') {
+60 * 60));
+            let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            return `$
 ```
 
 
 ## License: unknown
-https://github.com/Ibrahim-Muhammad13/playgrounds/tree/804d99b47359a44f3a6832ecd3f56d296dd06e6c/frontend/src/app/owner/recieves/recieves.component.ts
+https://github.com/sixmous-tech/gong-hong-ma-jonathan-joestar/tree/40c20e0b1348ca15359596534df90126a0f2a0e8/jo1scan.html
 
 ```
-) {
-    const [time, modifier] = timeString.split(' ');
-    let [hours, minutes] = time.split(':');
-    if (hours === '12') {
-        hours = '00';
-    }
-    if (modifier =
+/ (1000 * 60 * 60));
+            let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((diff % (1000 * 60)) / 1000)
 ```
 
