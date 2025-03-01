@@ -1,5 +1,5 @@
+document.addEventListener("DOMContentLoaded", function () {
     const timings = [
-        { date: "1 March", sehri: "05:05", iftar: "18:01" },
         { date: "2 March", sehri: "05:04", iftar: "18:02" },
         { date: "3 March", sehri: "05:03", iftar: "18:03" },
         { date: "4 March", sehri: "05:02", iftar: "18:03" },
@@ -74,6 +74,7 @@
             timingsTable.appendChild(row);
         });
     }
+
     function convertTo12HourFormat(time) {
         let [hours, minutes] = time.split(":");
         hours = parseInt(hours);
