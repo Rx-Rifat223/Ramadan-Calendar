@@ -4,9 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ramadan Calendar 2025</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            position: relative;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background: var(--primary-color);
+            color: white;
+        }
+        .countdown, .quote-section, .dua-section, .quran-section, .about-section {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .arabic {
+            font-family: 'Traditional Arabic', serif;
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .theme-selector {
+            position: absolute;
+            top: 20px;
+            right: 150px;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .dark-theme {
+            background-color: #333;
+            color: white;
+        }
+        .dark-theme .container {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        .dark-theme th {
+            background: var(--primary-color);
+        }
+        .dark-theme .theme-toggle {
+            background: var(--primary-color);
+        }
+        .theme-blue {
+            --primary-color: #007bff;
+            --secondary-color: #0056b3;
+        }
+        .theme-green {
+            --primary-color: #28a745;
+            --secondary-color: #1e7e34;
+        }
+        .theme-red {
+            --primary-color: #dc3545;
+            --secondary-color: #c82333;
+        }
+        .theme-yellow {
+            --primary-color: #ffc107;
+            --secondary-color: #e0a800;
+        }
+        .highlight {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 20px;
+        }
+    </style>
 </head>
-<body>
+<body class="theme-blue">
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    <select class="theme-selector" onchange="changeTheme(this.value)">
+        <option value="theme-blue">Blue</option>
+        <option value="theme-green">Green</option>
+        <option value="theme-red">Red</option>
+        <option value="theme-yellow">Yellow</option>
+    </select>
     <div class="container">
         <h1>Ramadan Calendar 2025</h1>
         <div class="countdown" id="currentDate"></div>
@@ -23,10 +123,91 @@
                 </tr>
             </thead>
             <tbody id="timingsTable">
-                <!-- Data will be inserted here dynamically -->
+                <!-- Data will be inserted dynamically -->
             </tbody>
         </table>
+        
+        <!-- Quranic Verse Section -->
+        <div class="quran-section">
+            <h2 class="highlight">Today's Quranic Verse</h2>
+            <p class="arabic" id="quranArabic"></p>
+            <p id="quranBangla"></p>
+            <p id="quranEnglish"></p>
+        </div>
+
+        <!-- Islamic Quotes Section -->
+        <div class="quote-section">
+            <h2 class="highlight">Islamic Quote of the Day</h2>
+            <p id="dailyQuote"></p>
+        </div>
+
+        <!-- Dua Section -->
+        <div class="dua-section">
+            <h2 class="highlight">Sehri & Iftar Duas</h2>
+            <h3 class="highlight">Sehri Ending Dua</h3>
+            <p class="arabic" id="sehriDuaArabic"></p>
+            <p id="sehriDuaBangla"></p>
+            <p id="sehriDuaEnglish"></p>
+
+            <h3 class="highlight">Iftar Dua</h3>
+            <p class="arabic" id="iftarDuaArabic"></p>
+            <p id="iftarDuaBangla"></p>
+            <p id="iftarDuaEnglish"></p>
+        </div>
+        
+        <!-- About Section -->
+        <div class="about-section">
+            <h2 class="highlight">About Manarat International University EEE Department</h2>
+            <p>Manarat International University (MIU) Electrical and Electronic Engineering (EEE) department is committed to providing quality education...</p>
+        </div>
     </div>
+
+    <script>
+        const dailyVerses = [
+            { arabic: "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ", bangla: "নিশ্চয়ই মুমিনরা পরস্পর ভাই", english: "Indeed, the believers are but brothers." },
+            { arabic: "وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ", bangla: "নামায কায়েম কর এবং যাকাত প্রদান কর", english: "And establish prayer and give zakah." }
+        ];
+        const dailyQuotes = [
+            "Fasting is a shield, it will protect you from the hellfire and prevent you from sins.",
+            "Whoever fasts Ramadan with faith and seeking reward, his past sins will be forgiven."
+        ];
+        const duas = {
+            sehri: {
+                arabic: "وَبِصَوْمِ غَدٍ نَوَيْتُ مِنْ شَهْرِ رَمَضَانَ",
+                bangla: "আমি রমাদানের রোজার নিয়ত করলাম",
+                english: "I intend to keep the fast for Ramadan."
+            },
+            iftar: {
+                arabic: "اللّهُـمَّ إِنِّـي لَكَ صُـمْتُ وَبِكَ آمَنْـتُ وَعَلَيْكَ تَوَكَّـلْتُ وَعَلـى رِزْقِـكَ أَفْطَـرْتُ",
+                bangla: "হে আল্লাহ! আমি তোমার জন্য রোজা রেখেছি, তোমার প্রতি ঈমান এনেছি, তোমার উপর ভরসা করেছি এবং তোমার দেয়া রিজিক দিয়ে ইফতার করছি।",
+                english: "O Allah! I fasted for You, I believe in You, I put my trust in You, and with Your sustenance, I break my fast."
+            }
+        };
+        
+        function updateDailyContent() {
+            const day = new Date().getDate() % dailyVerses.length;
+            document.getElementById("quranArabic").innerText = dailyVerses[day].arabic;
+            document.getElementById("quranBangla").innerText = dailyVerses[day].bangla;
+            document.getElementById("quranEnglish").innerText = dailyVerses[day].english;
+            document.getElementById("dailyQuote").innerText = dailyQuotes[day % dailyQuotes.length];
+            document.getElementById("sehriDuaArabic").innerText = duas.sehri.arabic;
+            document.getElementById("sehriDuaBangla").innerText = duas.sehri.bangla;
+            document.getElementById("sehriDuaEnglish").innerText = duas.sehri.english;
+            document.getElementById("iftarDuaArabic").innerText = duas.iftar.arabic;
+            document.getElementById("iftarDuaBangla").innerText = duas.iftar.bangla;
+            document.getElementById("iftarDuaEnglish").innerText = duas.iftar.english;
+        }
+        
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+
+        function changeTheme(theme) {
+            document.body.className = theme + (document.body.classList.contains('dark-theme') ? ' dark-theme' : '');
+        }
+
+        updateDailyContent();
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
