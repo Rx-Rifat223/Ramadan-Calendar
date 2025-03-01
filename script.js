@@ -61,24 +61,33 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("iftarCountdown").innerText = `Countdown to Iftar: ${getTimeRemaining(iftarTime)}`;
     }
 
+    function populateTimingsTable() {
+        const timingsTable = document.getElementById("timingsTable");
+        timings.forEach((timing, index) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${timing.date}</td>
+                <td>${new Date(`2025-03-${timing.date.split(' ')[0]}`).toLocaleString('en-US', { weekday: 'long' })}</td>
+                <td>${convertTo12HourFormat(timing.sehri)}</td>
+                <td>${convertTo12HourFormat(timing.iftar)}</td>
+            `;
+            timingsTable.appendChild(row);
+        });
+    }
+    function convertTo12HourFormat(time) {
+        let [hours, minutes] = time.split(":");
+        hours = parseInt(hours);
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        return `${hours}:${minutes} ${ampm}`;
+    }
+
     setInterval(updateCountdown, 1000);
     updateCountdown();
+    populateTimingsTable();
 });
-
-function populateTimingsTable() {
-    const timingsTable = document.getElementById("timingsTable");
-    timings.forEach((timing, index) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${index + 1}</td>
-            <td>${timing.date}</td>
-            <td>${new Date(`2025-03-${timing.date.split(' ')[0]}`).toLocaleString('en-US', { weekday: 'long' })}</td>
-            <td>${timing.sehri}</td>
-            <td>${timing.iftar}</td>
-        `;
-        timingsTable.appendChild(row);
-    });
-}
 
 window.addEventListener("resize", function() {
     const width = window.innerWidth;
