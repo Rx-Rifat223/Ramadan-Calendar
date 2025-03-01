@@ -1,0 +1,103 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ffd700;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+th {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffd700;
+}
+
+.countdown {
+    text-align: center;
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .countdown {
+        font-size: 18px;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .countdown {
+        font-size: 20px;
+    }
+
+    th, td {
+        padding: 7px;
+    }
+}
+
+@media (min-width: 1201px) {
+    body {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .countdown {
+        font-size: 24px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
