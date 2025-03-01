@@ -32,19 +32,6 @@ now;
 
 
 ## License: unknown
-https://github.com/Kris-Daniel/vue-common/tree/eb61370d87689fb2a396c9cd87f46b601a7fddf9/components/Calendar/helpers/CalendarService.js
-
-```
-let [hours, minutes] = time.split(':');
-    if (hours === '12') {
-        hours = '00';
-    }
-    if (modifier === 'PM') {
-        hours = parseInt(hours, 10) + 12
-```
-
-
-## License: unknown
 https://github.com/rifatptk/consulterdoor/tree/641a9b6992c0e50dcc975eb70248fe5e6dcce954/src/shared/utils.ts
 
 ```
@@ -54,5 +41,19 @@ https://github.com/rifatptk/consulterdoor/tree/641a9b6992c0e50dcc975eb70248fe5e6
         hours = '00';
     }
     if (modifier === 'PM') {
+```
+
+
+## License: unknown
+https://github.com/Ibrahim-Muhammad13/playgrounds/tree/804d99b47359a44f3a6832ecd3f56d296dd06e6c/frontend/src/app/owner/recieves/recieves.component.ts
+
+```
+) {
+    const [time, modifier] = timeString.split(' ');
+    let [hours, minutes] = time.split(':');
+    if (hours === '12') {
+        hours = '00';
+    }
+    if (modifier =
 ```
 
