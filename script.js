@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
     const timings = [
         { date: "1 March", sehri: "05:05", iftar: "18:01" },
         { date: "2 March", sehri: "05:04", iftar: "18:02" },
