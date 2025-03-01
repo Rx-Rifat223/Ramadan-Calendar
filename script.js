@@ -67,7 +67,7 @@ function convertTo24HourFormat(timeString) {
     if (modifier === 'PM') {
         hours = parseInt(hours, 10) + 12;
     }
-    return new Date(`2025-03-${new Date().getDate()}T${hours}:${minutes}:00`);
+    return new Date(`2025-03-${new Date().getDate()}T${hours}:${minutes}:00+06:00`);
 }
 
 function populateTimingsTable() {
