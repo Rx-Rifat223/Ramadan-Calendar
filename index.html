@@ -11,7 +11,7 @@
             position: relative;
         }
         .container {
-            width: 80%;
+            width: 90%;
             margin: auto;
             background: white;
             padding: 20px;
@@ -43,9 +43,7 @@
             color: var(--primary-color);
         }
         .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            margin-top: 10px;
             padding: 10px 20px;
             background: var(--primary-color);
             color: white;
@@ -54,12 +52,16 @@
             cursor: pointer;
         }
         .theme-selector {
-            position: absolute;
-            top: 20px;
-            right: 150px;
+            margin-top: 10px;
             padding: 10px;
             border-radius: 5px;
             cursor: pointer;
+            margin-right: 10px;
+        }
+        .logo {
+            width: 50px;
+            height: auto;
+            margin-right: 20px;
         }
         .dark-theme {
             background-color: #333;
@@ -97,16 +99,41 @@
             color: var(--primary-color);
             margin-top: 20px;
         }
+        .theme-controls {
+            margin-top: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        header .theme-controls {
+            margin-left: auto;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
     </style>
 </head>
 <body class="theme-blue">
-    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
-    <select class="theme-selector" onchange="changeTheme(this.value)">
-        <option value="theme-blue">Blue</option>
-        <option value="theme-green">Green</option>
-        <option value="theme-red">Red</option>
-        <option value="theme-yellow">Yellow</option>
-    </select>
+    <header>
+        <div class="header-content">
+            <img src="Removal-295.png" alt="Logo" class="logo">
+            <div class="theme-controls">
+                <select class="theme-selector" onchange="changeTheme(this.value)">
+                    <option value="theme-blue">Blue</option>
+                    <option value="theme-green">Green</option>
+                    <option value="theme-red">Red</option>
+                    <option value="theme-yellow">Yellow</option>
+                </select>
+                <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+            </div>
+        </div>
+    </header>
     <div class="container">
         <h1>Ramadan Calendar 2025</h1>
         <div class="countdown" id="currentDate"></div>
@@ -161,6 +188,16 @@
             <p>Manarat International University (MIU) Electrical and Electronic Engineering (EEE) department is committed to providing quality education...</p>
         </div>
     </div>
+
+    <footer>
+        <p>May Allah accept our fasts and prayers. Ameen.</p>
+        <p>
+            <a href="#about">About</a> | 
+            <a href="#contact">Contact</a> | 
+            <a href="#privacy">Privacy Policy</a>
+        </p>
+        <p>&copy; 2025 Ramadan Calendar. All rights reserved.</p>
+    </footer>
 
     <script>
         const dailyVerses = [
